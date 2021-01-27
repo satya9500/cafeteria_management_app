@@ -1,0 +1,12 @@
+.align-center-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-tagline {
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 32px auto;
+}

@@ -1,0 +1,2 @@
+class PendingOrder < ApplicationRecord
+end

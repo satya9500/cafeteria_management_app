@@ -1,0 +1,19 @@
+
+<div class="container">
+  <%= render partial: "navbar" %>
+  <div class="jumbotron">
+    <h1 class="display-4 align-center-item">GrubHub</h1>
+    <h1 class="lead display-6 align-center-item">Welcome to the fastest food delivery application.</h1>
+    <div class="align-center-item">
+      <img src="GrubHub.png" class="img-responsive" height="400"/>
+    </div>
+    <div class="home-tagline">
+      <h3 class="lead align-center-item">We deliver everywhere in the universe, be it in Pluto or Mars. We are everywhere.</h3>
+    </div>
+    <hr class="my-4">
+    <div class="lead align-center-item flex-row">
+      <div class="p-2"><%= link_to "Sign in", "/", class: "btn btn-primary btn-lg" %></div>
+      <div class="p-2"><%= link_to "Sign Up", "/", class: "btn btn-primary btn-lg" %></div>
+    </div>
+  </div>
+</div>
