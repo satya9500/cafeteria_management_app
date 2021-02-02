@@ -8,6 +8,7 @@
         <th scope="col">Item Name</th>
         <th scope="col">Item Price</th>
         <th scope="col">Item Description</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,14 @@
         <th scope="col">
           <%= menu_item.description do %>
           <%end%>
+        </th>
+        <th scope="col">
+        <%= form_with(url: "/menu_items/#{menu_item.id}", method: "DELETE") do |f| %>
+            <%= f.hidden_field :menu_id, :value => @menu.id%>
+            <%= button_tag onclick: "this.form.submit()", type: :button, class: "btn btn-danger" do %>
+              Delete
+            <% end%>
+          <% end %>
         </th>
       </tr>
     <%end%>

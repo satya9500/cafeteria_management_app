@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 class="text-center m-2">Dashboard</h3>
+  <div class="row p-3">
+    <% @all_active_items.each do |menu_item| %>
+      <div class="card border-primary m-3" style="min-width: 20rem;">
+        <div class="card-header">
+          <%= menu_item.name %>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <h4 class="card-title col-6"><%= menu_item.price %></h4>
+            <input type="text" class="form-control col-6" placeholder="Number" />
+          </div>
+          <div class="row">
+            <p class="card-text col-6"><%= menu_item.description %></p>
+            <div class="col-6">
+              <%= form_with(url: "/add_item_to_order", method: "POST") do |f| %>
+                <%= f.hidden_field :menu_id, :value => menu_item.menu_id%>
+                <%= f.hidden_field :menu_item_id, :value => menu_item.id%>
+                <%= f.hidden_field :menu_item_price, :value => menu_item.price%>
+                <%= f.hidden_field :menu_item_name, :value => menu_item.name%>
+                <%= button_tag onclick: "this.form.submit()", type: :button, class: "btn btn-danger form-control" do %>
+                  Add
+                <% end%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

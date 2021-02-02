@@ -17,11 +17,29 @@ class MenusController < ApplicationController
     render "/menus/show"
   end
 
+  def update
+    id = params[:id]
+    menu = Menu.find(id)
+    menu.is_active = params[:is_active]
+    menu.save!
+    redirect_to menus_path
+  end
+
+  def destroy
+    id = params[:id]
+    menu = Menu.find(id)
+    menu.destroy!
+    redirect_to menus_path
+  end
+
   def create
-    Menu.create(
+    menu = Menu.new(
       name: params[:menu_name],
       is_active: params[:is_active],
     )
+    if !menu.save
+      flash[:error] = menu.errors.full_messages.join(", ")
+    end
     redirect_to menus_path
   end
 end

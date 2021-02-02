@@ -3,7 +3,8 @@ class MainController < ApplicationController
 
   def index
     if current_user
-      render "main/new"
+      @all_active_items = MenuItem.includes(:menu).where(menu: { is_active: true })
+      render "main/index"
     else
       redirect_to "/"
     end
