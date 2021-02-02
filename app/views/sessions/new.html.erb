@@ -1,0 +1,32 @@
+<div class="card border-primary mb-3 container mt-5 p-0" style="max-width:40rem">
+  <div class="card-header">Login</div>
+  <div class="card-body">
+
+
+<%= form_with(url: "/signin", method: "post") do |form| %>
+  <fieldset>
+    <legend>Login</legend>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <%= form.email_field :email, class: "form-control", placeholder: "Enter email" %>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Submit", class: "btn btn-primary form-control" %>
+    </div>
+
+    <div>
+      <p>Not a member yet? <strong><%= link_to "Sign up", new_user_path, method: "get"%></strong>.</p>
+    </div>
+<%end%>
+
+
+  </div>
+</div>

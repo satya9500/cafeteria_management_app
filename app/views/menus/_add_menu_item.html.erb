@@ -1,0 +1,50 @@
+<div class="container">
+<h3 class="text-center mt-3"><%= "Menu: #{@menu.name}" %></h3>
+
+<div class="card border-primary mb-3 mt-5 p-0">
+
+  <div class="card-header">
+    <%= "Add Menu Item for #{@menu.name}" %>
+  </div>
+  <div class="card-body">
+
+
+<%= form_with(url: "/menu_items", method: "post") do |form| %>
+
+  <div class="row">
+
+  <div class="form-group col-md-6">
+    <label>Menu Id</label>
+    <%= form.text_field :menu_id, class: "form-control", placeholder: "Enter Menu id", value: @menu.id, readonly: "" %>
+    <small class="form-text text-muted">Menu Id</small>
+  </div>
+
+    <div class="form-group col-md-6">
+      <label>Item Name</label>
+      <%= form.text_field :menu_item_name, class: "form-control", placeholder: "Enter Item Name" %>
+      <small class="form-text text-muted">Name of the item will be displayed on main page</small>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Item Price</label>
+      <%= form.number_field :menu_item_price, class: "form-control", placeholder: "Enter Item Price" %>
+      <small class="form-text text-muted">Price of the item will be displayed on main page</small>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Item description</label>
+      <%= form.text_field :menu_item_description, class: "form-control", placeholder: "Enter Item description" %>
+      <small class="form-text text-muted">Description of the item will be displayed on main page</small>
+    </div>
+
+  </div>
+    <div class="form-group" style="max-width: 20rem; margin: 0 auto;">
+      <%= form.submit "Add Menu Item", class: "btn btn-primary form-control" %>
+    </div>
+
+<%end%>
+
+
+  </div>
+</div>
+</div>

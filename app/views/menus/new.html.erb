@@ -1,0 +1,33 @@
+<div class="card border-primary mb-3 container mt-5 p-0">
+  <div class="card-header">Create Menu</div>
+  <div class="card-body">
+
+
+<%= form_with(url: "/menus", method: "post") do |form| %>
+
+  <div class="row">
+
+    <div class="form-group col-md-6">
+      <label>Menu Name</label>
+      <%= form.text_field :menu_name, class: "form-control", placeholder: "Enter Menu Name" %>
+      <small class="form-text text-muted">This will be the category of menu items you add after this.</small>
+    </div>
+
+    <div class="form-group col-md-6 mt-3">
+      <label></label>
+      <div class="custom-control custom-switch">
+        <%= form.check_box :is_active, class: "custom-control-input", id: "customSwitch1"   %>
+        <label class="custom-control-label" for="customSwitch1">Toggle this switch to mark menu as active</label>
+      </div>
+    </div>
+
+  </div>
+    <div class="form-group" style="max-width: 20rem; margin: 0 auto;">
+      <%= form.submit "Add Menu", class: "btn btn-primary form-control" %>
+    </div>
+
+<%end%>
+
+
+  </div>
+</div>

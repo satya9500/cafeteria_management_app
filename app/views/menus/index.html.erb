@@ -1,0 +1,33 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Menu Id</th>
+        <th scope="col">Menu Name</th>
+        <th scope="col">Is Active</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <th scope="col">
+          <%= menu.id do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= menu.name do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= menu.is_active do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= link_to "Configure", "/menus/#{menu.id}", class: "btn btn-primary"%>
+        </th>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>

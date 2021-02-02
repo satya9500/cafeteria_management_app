@@ -1,0 +1,36 @@
+<%= render partial: "add_menu_item" %>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Item Id</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Item Price</th>
+        <th scope="col">Item Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @menu_items.each do |menu_item| %>
+      <tr>
+        <th scope="col">
+          <%= menu_item.id do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= menu_item.name do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= menu_item.price do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= menu_item.description do %>
+          <%end%>
+        </th>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>

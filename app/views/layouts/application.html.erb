@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <div class="container">
+      <% if flash[:error] %>
+        <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong><%= flash[:error] %></strong>
+    </div>
+      <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>
