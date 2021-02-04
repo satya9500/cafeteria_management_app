@@ -1,0 +1,28 @@
+<div class="container">
+    <%@orders.each do |order| %>
+      <div class="card border-primary mb-3 row" style="min-width: 50rem;">
+        <div class="card-header">Order ID: <%= order.id %></div>
+          <div class="card-body">
+            <h4 class="card-title">Order Status: <%= order.status %></h4>
+            <p class="card-text">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Order Type
+                    <span class="badge badge-primary badge-pill"><%= order.order_type %></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Order time
+                    <span class="badge badge-primary badge-pill"><%= order.date.to_formatted_s(:long) %></span>
+                  </li>
+                  <% if order.delivered_at!=nil %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Morbi leo risus
+                      <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                  <%end%>
+                </ul>
+            </p>
+          </div>
+      </div>
+    <%end%>
+</div>

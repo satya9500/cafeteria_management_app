@@ -4,6 +4,7 @@ class MainController < ApplicationController
   def index
     if current_user
       @all_active_items = MenuItem.includes(:menu).where(menu: { is_active: true })
+      @cart_items = session[:cart]
       render "main/index"
     else
       redirect_to "/"

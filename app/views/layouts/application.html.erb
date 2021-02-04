@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="/assets/jquery.js" type="text/javascript"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="container">
+  <body class="container">
+    <div>
+      <% if @current_user %>
+        <%= link_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-primary float-right"%><br><br>
+      <%end%>
       <% if flash[:error] %>
         <div class="alert alert-dismissible alert-danger">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><%= flash[:error] %></strong>
-    </div>
+        </div>
       <%end%>
     </div>
     <%= yield %>

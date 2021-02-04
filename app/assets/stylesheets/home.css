@@ -10,3 +10,5 @@
   max-width: 400px;
   margin: 32px auto;
 }
+
+.modal {z-index: 1072;}

@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       session[:current_user_role] = user.role
+      session[:cart] = Array.new
       redirect_to "/"
     else
       flash[:error] = "Your login attempt was invalid. Please retry."
@@ -19,8 +20,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    before_action :ensure_user_logged_in
     session[:current_user_id] = nil
+    session[:cart] = nil
     @current_user = nil
     redirect_to "/"
   end

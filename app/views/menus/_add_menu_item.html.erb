@@ -37,6 +37,12 @@
       <small class="form-text text-muted">Description of the item will be displayed on main page</small>
     </div>
 
+    <div class="form-group col-md-6">
+      <label>Item Image Url</label>
+      <%= form.text_field :menu_item_image, class: "form-control", placeholder: "Enter Image url" %>
+      <small class="form-text text-muted">Item image url (optional)</small>
+    </div>
+
   </div>
     <div class="form-group" style="max-width: 20rem; margin: 0 auto;">
       <%= form.submit "Add Menu Item", class: "btn btn-primary form-control" %>
