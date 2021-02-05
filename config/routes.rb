@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get "/", to: "home#index"
   get "/main", to: "main#index"
   post "/add_item_to_order", to: "orders#storeItems"
+  get "/order/all", to: "orders#ordersAll", as: :orders_all
+  get "/report", to: "reports#index", as: :reports
+  get "/report/order/:order_id", to: "reports#order_details", as: :reports_order_details
 
   resources :users
   resources :menu_items

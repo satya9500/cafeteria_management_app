@@ -1,0 +1,40 @@
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Item Id</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Item Price</th>
+        <th scope="col">Item Quantity</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @order_items_report.each do |item| %>
+      <tr>
+        <th scope="col">
+          <%= item.id do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= item.menu_item_name do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= item.menu_item_price do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= item.quantity do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= item.amount do %>
+          <%end%>
+        </th>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>

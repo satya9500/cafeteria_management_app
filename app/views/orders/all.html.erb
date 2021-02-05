@@ -1,0 +1,47 @@
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Order Id</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Order Amount</th>
+        <th scope="col">Status</th>
+        <th scope="col">Date</th>
+        <th scope="col">Mark Delivered</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @all_orders.each do |order| %>
+      <tr>
+        <th scope="col">
+          <%= order.id do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= order.user.name do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= order.total_price do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= order.status do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= order.order_type do %>
+          <%end%>
+        </th>
+        <th scope="col">
+          <%= form_with(url: "/orders/#{order.id}", method: "PUT") do %>
+            <%= check_box_tag('delivered_at', nil, order.delivered_at ? true : false, name: "delivered_at", onclick: "this.form.submit()", class: "disabled") do %>
+            <% end%>
+          <% end %>
+        </th>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>

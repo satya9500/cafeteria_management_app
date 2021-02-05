@@ -1,0 +1,35 @@
+
+<div class="card border-primary mb-3 mt-5 p-0 row">
+
+  <div class="card-header">
+    Custom Query
+  </div>
+  <div class="card-body">
+
+
+<%= form_with(url: "/menu_items", method: "post") do |form| %>
+
+  <div class="row">
+
+    <div class="form-group col-md-6">
+      <label>Start Date</label>
+      <%= form.date_field :start_date, class: "form-control" %>
+      <small class="form-text text-muted">Report will be generated from this date</small>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>End Date</label>
+      <%= form.date_field :end_date, class: "form-control" %>
+      <small class="form-text text-muted">Report will be generated to this date</small>
+    </div>
+
+  </div>
+    <div class="form-group" style="max-width: 20rem; margin: 0 auto;">
+      <%= form.submit "Add Menu Item", class: "btn btn-primary form-control" %>
+    </div>
+
+<%end%>
+
+
+  </div>
+</div>

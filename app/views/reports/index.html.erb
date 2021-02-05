@@ -1,6 +1,10 @@
 <div class="container">
-    <%@orders.each do |order| %>
-      <div class="card border-primary mb-3 row" style="min-width: 50rem;">
+  <h4 class="text-center">Report</h4>
+  <%= render partial: "query_menu" %>
+  <div class="row">
+    <%@all_orders.each do |order| %>
+    <div class="p-2 col-4">
+      <div class="card border-primary p-0">
         <div class="card-header">Order ID: <%= order.id %></div>
           <div class="card-body">
             <h4 class="card-title">Order Status: <%= order.status %></h4>
@@ -30,8 +34,13 @@
                     </li>
                   <%end%>
                 </ul>
+                <div class="text-center mt-2">
+                  <%= link_to "View Details", "/report/order/#{order.id}", class: "btn btn-primary" %>
+                </div>
             </p>
           </div>
       </div>
+    </div>
     <%end%>
+  </div>
 </div>

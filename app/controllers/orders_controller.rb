@@ -41,6 +41,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    puts @current_user.role
     if session[:cart].length <= 0
       flash[:error] = "You must select some items first"
       redirect_to main_path and return
@@ -50,12 +51,17 @@ class OrdersController < ApplicationController
     if @current_user.role == "customer"
       order_type = "online"
     end
+    total_price = 0
+    for order_item in session[:cart]
+      total_price = total_price + order_item["amount"]
+    end
     order = Order.new({
       :user_id => @current_user.id,
       :order_type => order_type,
       :status => order_status,
       :date => DateTime.now,
       :delivered_at => nil,
+      :total_price => total_price,
     })
     if !order.save
       flash[:error] = order.errors.full_messages.join(", ")
@@ -69,5 +75,23 @@ class OrdersController < ApplicationController
     session[:cart] = Array.new
     order_items = OrderItem.create(all_cart_items)
     redirect_to orders_path
+  end
+
+  def update
+    id = params[:id]
+    order = Order.find(id)
+    if order.status == "delivered"
+      flash[:error] = "This order is already delivered"
+      redirect_to orders_all_path and return
+    end
+    order.status = "delivered"
+    order.delivered_at = DateTime.now
+    order.save
+    redirect_to orders_all_path
+  end
+
+  def ordersAll
+    @all_orders = Order.joins(:user).all
+    render "orders/all"
   end
 end
