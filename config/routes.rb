@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/order/all", to: "orders#ordersAll", as: :orders_all
   get "/report", to: "reports#index", as: :reports
   get "/report/order/:order_id", to: "reports#order_details", as: :reports_order_details
+  get "/report/query", to: "reports#range_query_report", as: :reports_range_query
 
   resources :users
   resources :menu_items

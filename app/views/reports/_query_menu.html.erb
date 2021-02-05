@@ -7,17 +7,23 @@
   <div class="card-body">
 
 
-<%= form_with(url: "/menu_items", method: "post") do |form| %>
+<%= form_with(url: reports_range_query_path, method: "get") do |form| %>
 
   <div class="row">
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
+      <label>User ID</label>
+      <%= form.text_field :user_id, class: "form-control", placeholder: "Enter User ID here" %>
+      <small class="form-text text-muted">Enter user id of the user here</small>
+    </div>
+
+    <div class="form-group col-md-4">
       <label>Start Date</label>
       <%= form.date_field :start_date, class: "form-control" %>
       <small class="form-text text-muted">Report will be generated from this date</small>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label>End Date</label>
       <%= form.date_field :end_date, class: "form-control" %>
       <small class="form-text text-muted">Report will be generated to this date</small>
@@ -25,7 +31,7 @@
 
   </div>
     <div class="form-group" style="max-width: 20rem; margin: 0 auto;">
-      <%= form.submit "Add Menu Item", class: "btn btn-primary form-control" %>
+      <%= form.submit "Get Report", class: "btn btn-primary form-control" %>
     </div>
 
 <%end%>
