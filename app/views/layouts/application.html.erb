@@ -14,10 +14,9 @@
   <body class="container">
     <div>
       <% if @current_user %>
-        <%= @current_user.name %> |
-        <%= @current_user.role%>
-        <%= link_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-primary float-right"%><br><br>
+          <%= render partial: "layouts/navbar"%>
       <%end%>
+
       <% if flash[:error] %>
         <div class="alert alert-dismissible alert-danger">
         <button type="button" class="close" data-dismiss="alert">&times;</button>

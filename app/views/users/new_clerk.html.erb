@@ -1,34 +1,27 @@
 <div class="card border-primary mb-3 container mt-5 p-0" style="max-width:40rem">
-  <div class="card-header">Registration</div>
+  <div class="card-header">Clerk Registration</div>
   <div class="card-body">
 
 
-<%= form_with(url: users_path, method: "post") do |form| %>
+<%= form_with(url: register_clerk_path, method: "post") do |form| %>
   <fieldset>
     <legend>Sign Up</legend>
     <div class="form-group">
-      <label for="exampleInputEmail1">Name</label>
+      <label for="exampleInputEmail1">Clerk's Name</label>
       <%= form.text_field :name, class: "form-control", placeholder: "Enter full name" %>
       <small id="nameHelp" class="form-text text-muted">We will use this name to greet you in future !</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
+      <label for="exampleInputEmail1">Clerk's Email address</label>
       <%= form.email_field :email, class: "form-control", placeholder: "Enter email" %>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
+      <label for="exampleInputPassword1">Clerk's Password</label>
       <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
     </div>
     <div class="form-group">
-      <%= form.submit "Submit", class: "btn btn-primary form-control" %>
-    </div>
-
-    <div>
-      <p>Already a member? <strong><%= link_to "Sign in", "/signin", method: "get"%></strong>.</p>
-    </div>
-    <div>
-      <p>Go to home? <strong><%= link_to "Home", "/", method: "get"%></strong>.</p>
+      <%= form.submit "Sign up", class: "btn btn-primary form-control" %>
     </div>
 <%end%>
 

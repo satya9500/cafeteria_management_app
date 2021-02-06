@@ -7,7 +7,7 @@
         <th scope="col">User Name</th>
         <th scope="col">Order Amount</th>
         <th scope="col">Status</th>
-        <th scope="col">Date</th>
+        <th scope="col">Order Type</th>
         <th scope="col">Mark Delivered</th>
       </tr>
     </thead>
@@ -20,6 +20,8 @@
         </th>
         <th scope="col">
           <%= order.user.name do %>
+          <%end%> |
+          <%= order.user.role do %>
           <%end%>
         </th>
         <th scope="col">

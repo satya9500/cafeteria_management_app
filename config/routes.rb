@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get "/report", to: "reports#index", as: :reports
   get "/report/order/:order_id", to: "reports#order_details", as: :reports_order_details
   get "/report/query", to: "reports#range_query_report", as: :reports_range_query
-
+  get "/register/clerk", to: "users#createClerkPage", as: :register_clerk_page
+  post "/register/clerk", to: "users#createClerk", as: :register_clerk
+  get "/register/owner", to: "users#createOwnerPage", as: :register_owner_page
+  post "/register/owner", to: "users#createOwner", as: :register_owner
   resources :users
   resources :menu_items
   resources :menus

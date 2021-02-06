@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   before_action :ensure_user_logged_in
-  before_action :ensure_user_is_owner
+  before_action :ensure_owner
 
   def new
     "/menus/new"

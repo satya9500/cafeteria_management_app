@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">GrubHub</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%=link_to "Home", "/", class: "nav-link"%>
+        </a>
+      </li>
+      <li class="nav-item">
+        <%=link_to "My Orders", orders_path, class: "nav-link"%>
+      </li>
+      <% if @current_user.is_owner or @current_user.is_clerk %>
+      <li class="nav-item">
+        <%=link_to "All Orders", orders_all_path, class: "nav-link"%>
+      </li>
+      <%end%>
+      <% if @current_user.is_owner %>
+      <li class="nav-item">
+        <%=link_to "See Menu", menus_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%=link_to "Add Menu", new_menu_path, class: "nav-link"%>
+      </li>
+      <%end%>
+    </ul>
+    <%= link_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-warning float-right"%>
+  </div>
+</nav>

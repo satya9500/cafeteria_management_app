@@ -1,6 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :ensure_user_logged_in
-  before_action :ensure_user_is_owner
+  before_action :ensure_owner
 
   def create
     menu_id = params[:menu_id]

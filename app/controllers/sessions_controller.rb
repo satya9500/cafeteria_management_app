@@ -1,12 +1,15 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      redirect_to "/" and return
+    end
     render "sessions/new"
   end
 
-  def index
-  end
-
   def create
+    if current_user
+      redirect_to "/" and return
+    end
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id

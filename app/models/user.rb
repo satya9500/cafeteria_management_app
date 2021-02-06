@@ -8,4 +8,16 @@ class User < ApplicationRecord
   validates :role, inclusion: { in: %w(owner clerk customer) }
   validates :role, presence: true
   has_many :orders
+
+  def is_owner
+    role == "owner"
+  end
+
+  def is_customer
+    role == "customer"
+  end
+
+  def is_clerk
+    role == "clerk"
+  end
 end

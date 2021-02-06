@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :ensure_user_logged_in, only: [:ensure_clerk_or_owner, :ensure_owner]
+
   def ensure_user_logged_in
     unless current_user
       flash[:error] = "You must be logged in to access this section"
@@ -6,16 +8,25 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_user_is_clerk
-    return match_role("clerk")
+  def ensure_user_not_logged_in
+    if current_user
+      flash[:error] = "You need to logout first!"
+      redirect_to "/"
+    end
   end
 
-  def ensure_user_is_customer
-    return match_role("customer")
+  def ensure_clerk_or_owner
+    unless @current_user.is_owner or @current_user.is_clerk
+      flash[:error] = "You role is not authorized to perform this action."
+      redirect_to "/"
+    end
   end
 
-  def ensure_user_is_owner
-    return match_role("owner")
+  def ensure_owner
+    unless @current_user.is_owner
+      flash[:error] = "You role is not authorized to perform this action."
+      redirect_to "/"
+    end
   end
 
   def current_user
@@ -26,15 +37,6 @@ class ApplicationController < ActionController::Base
       return @current_user
     else
       nil
-    end
-  end
-
-  def match_role(role)
-    if role == @current_user.role
-      return @current_user.role
-    else
-      flash[:error] = "You role is not authorized to perform this action."
-      redirect_to "/"
     end
   end
 end

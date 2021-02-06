@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :ensure_user_logged_in
+  before_action :ensure_clerk_or_owner, only: [:update, :ordersAll]
 
   def index
     @orders = @current_user.orders
