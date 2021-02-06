@@ -22,7 +22,7 @@
         </th>
         <th scope="col">
         <div class="custom-control custom-switch">
-          <%= form_with(url: "menus/#{menu.id}", method: "PUT") do %>
+          <%= form_with(url: "menus/#{menu.id}", method: "PATCH") do %>
             <%= check_box_tag('is_active', nil, menu.is_active ? true : false, name: "is_active", onclick: "this.form.submit()") do %>
             <% end%>
           <% end %>
