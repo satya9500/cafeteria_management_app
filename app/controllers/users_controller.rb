@@ -71,6 +71,9 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if user.save
+      session[:current_user_id] = user.id
+      session[:current_user_role] = user.role
+      session[:cart] = Array.new
       redirect_to "/"
     else
       flash[:error] = user.errors.full_messages.join(", ")
