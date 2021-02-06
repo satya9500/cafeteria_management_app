@@ -1,9 +1,10 @@
 <div class="container">
-  <h3 class="text-center">Dashboard</h3>
+  <h3 class="text-center mt-3">Dashboard</h3>
 
-  <div class="row p-3">
+  <div class="row pt-3">
     <% @all_active_items.each do |menu_item| %>
-      <div class="card border-primary m-3" style="min-width: 15rem;">
+    <div class="col-4 p-2">
+      <div class="card border-primary p-0">
         <div class="card-header">
           <%= menu_item.name %>
         </div>
@@ -29,6 +30,7 @@
         </div>
         <% end %>
       </div>
+    </div>
     <%end%>
   </div>
   <div class="mb-5">
