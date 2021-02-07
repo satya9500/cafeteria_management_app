@@ -8,6 +8,7 @@
         <th scope="col">Item Name</th>
         <th scope="col">Item Price</th>
         <th scope="col">Item Description</th>
+        <th scope="col">Modify Item</th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
@@ -29,6 +30,9 @@
         <th scope="col">
           <%= menu_item.description do %>
           <%end%>
+        </th>
+        <th scope="col">
+        <%= link_to "Edit", "/menu_items/#{menu_item.id}", class: "btn btn-warning" %>
         </th>
         <th scope="col">
         <%= form_with(url: "/menu_items/#{menu_item.id}", method: "DELETE") do |f| %>

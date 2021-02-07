@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/register/clerk", to: "users#createClerk", as: :register_clerk
   get "/register/owner", to: "users#createOwnerPage", as: :register_owner_page
   post "/register/owner", to: "users#createOwner", as: :register_owner
+
   resources :users
   resources :menu_items
   resources :menus
