@@ -7,26 +7,32 @@ class OrdersController < ApplicationController
     render "orders/index"
   end
 
-  def storeItems
+  def destroyItemFromCart
+    menu_item_id = params[:menu_item_id]
+    for cart_item in session[:cart]
+      if cart_item["menu_item_id"].to_s == menu_item_id.to_s
+        session[:cart] = session[:cart] - [cart_item]
+        redirect_to main_path and return
+      end
+    end
+  end
+
+  def storeItemsInCart
     menu_item_id = params[:menu_item_id]
     menu_item = MenuItem.find_by_id(menu_item_id)
     menu_item_name = menu_item.name
     menu_item_price = menu_item.price
 
     quantity = params[:quantity]
-    if quantity.to_i < 0
+    if quantity.to_i <= 0
       flash[:error] = "The quantity must be greater than zero"
       redirect_to main_path and return
     end
 
     for cart_item in session[:cart]
       if cart_item["menu_item_id"].to_s == menu_item_id.to_s
-        if quantity.to_i <= 0
-          session[:cart] = session[:cart] - [cart_item]
-        else
-          cart_item[:quantity] = params[:quantity]
-          cart_item[:amount] = menu_item.price.to_i * quantity.to_i
-        end
+        cart_item[:quantity] = params[:quantity]
+        cart_item[:amount] = menu_item.price.to_i * quantity.to_i
         redirect_to main_path and return
       end
     end
