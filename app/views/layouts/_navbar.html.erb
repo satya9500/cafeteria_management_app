@@ -26,6 +26,9 @@
         <%=link_to "Add Menu", new_menu_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
+        <%=link_to "Add Clerk", register_clerk_page_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
         <%=link_to "All Users", users_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
@@ -33,6 +36,7 @@
       </li>
       <%end%>
     </ul>
+    <span class="badge badge-success mr-2" style="font-size: 15px;"><%=@current_user.name%> | <%=@current_user.role%></span>
     <%= link_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-warning float-right"%>
   </div>
 </nav>

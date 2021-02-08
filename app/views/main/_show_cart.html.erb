@@ -8,26 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Item name</th>
-              <th scope="col">Item Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @cart_items.each do |item| %>
-              <tr>
-                <th scope="col"><%= item["menu_item_name"] %></th>
-                <th scope="col"><%= item["menu_item_price"] %></th>
-                <th scope="col"><%= item["quantity"] %></th>
-                <th scope="col"><%= item["amount"] %></th>
-              </tr>
-            <%end%>
-          </tbody>
-        </table>
+      <%= render partial: "table_cart_view"%>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
