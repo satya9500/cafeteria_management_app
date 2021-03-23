@@ -1,24 +1,22 @@
-# README
+# CAFETERIA MANAGEMENT APPLICATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a cafeteria management application having access controls defined for clerk. owner and user.
 
-Things you may want to cover:
+Live link : [https://satya-cafeteria-management-app.herokuapp.com/](https://satya-cafeteria-management-app.herokuapp.com/)
 
-* Ruby version
+## The features include
++ Owner, Clerk and User Sign-in and Sign-up
++ Add to cart and checkout
++ Mark order as delivered by clerk or Owner
++ Add/Edit/Delete Menu by owner
++ Add Clerks
++ View Report by owner
++ Allow Clerk and Owner also to place orders for walk-in customers
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tech Stack
++ HTML5, CSS3
++ ERB Templating
++ Bootswatch
++ Ruby on Rails
++ Postgres
++ ActiveRecord
